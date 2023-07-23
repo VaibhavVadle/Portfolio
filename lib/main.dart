@@ -1,13 +1,25 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:protfolio_web/screens/home.dart';
-import 'package:protfolio_web/widgets/widgets.dart';
+import 'provider/contact_provider.dart';
+import 'provider/scroll_provider.dart';
+import 'screens/home.dart';
+import 'widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 import 'core/constants/app_color.dart';
 import 'core/constants/app_sizes.dart';
 import 'core/utils/screen_util.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+    apiKey: "AIzaSyCuKW7Ls6RaP2G8rgFo6FzjsJC-taCjg0M",
+    appId: "1:516432246693:web:300537906d6ec39ac55a4c",
+    messagingSenderId: "516432246693",
+    projectId: "vaibhav-vadle",
+  ));
   runApp(const MyApp());
   ErrorWidget.builder = (details) {
     return Scaffold(
@@ -34,30 +46,36 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Vaibhav Vadle | Flutter Developer",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'RobotoMono',
-        brightness: Brightness.light,
-        primaryColor: AppColors.primary,
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ScrollProvider()),
+        ChangeNotifierProvider(create: (context) => ContactProvider()),
+      ],
+      child: MaterialApp(
+        title: "Vaibhav Vadle | Flutter Developer",
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'RobotoMono',
+          brightness: Brightness.light,
+          primaryColor: AppColors.primary,
+          useMaterial3: true,
+        ),
+        home: const HomeScreen(),
+        builder: (context, child) {
+          return ScrollConfiguration(
+            behavior: const _ScrollBehaviorModified(),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                ScreenUtil.init(
+                  context,
+                  designSize: Size(constraints.maxWidth, constraints.maxHeight),
+                );
+                return child ?? const SizedBox.shrink();
+              },
+            ),
+          );
+        },
       ),
-      home: const HomeScreen(),
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: const _ScrollBehaviorModified(),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              ScreenUtil.init(
-                context,
-                designSize: Size(constraints.maxWidth, constraints.maxHeight),
-              );
-              return child ?? const SizedBox.shrink();
-            },
-          ),
-        );
-      },
     );
   }
 }

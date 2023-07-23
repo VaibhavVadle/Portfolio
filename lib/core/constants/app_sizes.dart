@@ -1,4 +1,4 @@
-import 'package:protfolio_web/core/utils/screen_util.dart';
+import '../utils/screen_util.dart';
 
 class Sizes {
   Sizes._();

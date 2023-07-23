@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   responsive_builder: ^0.7.0
   url_launcher: ^6.1.11
+  provider: ^6.0.5
+  cloud_firestore: ^4.8.3
+  firebase_core: ^2.15.0
+  http: ^1.1.0
   flutter_widgets:
     git:
       url: https://github.com/vvvirani/flutter_widgets

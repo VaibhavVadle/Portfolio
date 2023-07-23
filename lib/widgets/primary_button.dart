@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:protfolio_web/core/constants/app_color.dart';
-import 'package:protfolio_web/core/constants/app_sizes.dart';
+import '../core/constants/app_color.dart';
+import '../core/constants/app_sizes.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({

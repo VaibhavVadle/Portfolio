@@ -11,4 +11,6 @@ class AppAssets {
   static const String snapchat = "assets/icons/snapchat.svg";
   static const String twitter = "assets/icons/twitter.svg";
   static const String youTube = "assets/icons/youTube.svg";
+  static const String menu = "assets/icons/menu.png";
+  static const String close = "assets/icons/close.png";
 }
