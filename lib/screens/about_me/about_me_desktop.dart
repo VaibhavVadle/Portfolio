@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:protfolio_web/provider/scroll_provider.dart';
 import 'package:provider/provider.dart';
 import '../../core/constants/app_color.dart';
 import '../../core/constants/app_sizes.dart';
 import '../../core/utils/screen_util.dart';
+import '../../provider/scroll_provider.dart';
 import '../../widgets/custom_underline.dart';
 import '../../widgets/primary_button.dart';
 import '../../widgets/skill_card.dart';
@@ -140,7 +140,7 @@ class AboutMeDesktop extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                         ),
                         onTap: () {
-                          context.read<ScrollProvider>().scrollToContact();
+                          context.read<ScrollProvider>().scrollToFooter();
                         },
                       )
                     ],

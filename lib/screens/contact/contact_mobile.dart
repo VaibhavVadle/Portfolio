@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../core/constants/app_assets.dart';
 import '../../core/constants/app_color.dart';
 import '../../core/constants/app_sizes.dart';
 import '../../core/utils/screen_util.dart';
 import '../../core/utils/validation.dart';
+import '../../provider/contact_provider.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/custom_underline.dart';
 import '../../widgets/primary_button.dart';
@@ -20,6 +22,13 @@ class _ContactMobileState extends State<ContactMobile> {
   TextEditingController email = TextEditingController();
   TextEditingController message = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  void clearText() {
+    name.text = "";
+    email.text = "";
+    message.text = "";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -119,10 +128,15 @@ class _ContactMobileState extends State<ContactMobile> {
                       text: "SUBMIT",
                       onTap: () {
                         if (_formKey.currentState?.validate() ?? false) {
+                          context.read<ContactProvider>().sendContactInfo(
+                                name: name.text,
+                                email: email.text,
+                                message: message.text,
+                              );
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content:
-                                  Text("Your response is successfully sended."),
+                            SnackBar(
+                              content: Text(
+                                  "Thank you ${name.text} & I will contact ASAP."),
                             ),
                           );
                         }

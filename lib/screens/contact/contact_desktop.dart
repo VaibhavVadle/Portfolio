@@ -23,6 +23,13 @@ class _ContactDesktopState extends State<ContactDesktop> {
   TextEditingController email = TextEditingController();
   TextEditingController message = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  void clearText() {
+    name.text = "";
+    email.text = "";
+    message.text = "";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -128,9 +135,9 @@ class _ContactDesktopState extends State<ContactDesktop> {
                                 message: message.text,
                               );
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content:
-                                  Text("Thank you! & I will contact asap."),
+                            SnackBar(
+                              content: Text(
+                                  "Thank you ${name.text} & I will contact ASAP."),
                             ),
                           );
                         }
