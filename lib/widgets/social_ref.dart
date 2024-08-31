@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/flutter_widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../core/constants/app_assets.dart';
 import '../core/constants/app_color.dart';
 import '../core/constants/app_sizes.dart';
@@ -66,11 +66,11 @@ Widget socialLogo({
     margin: EdgeInsets.symmetric(horizontal: Sizes.s10.w),
     child: GestureDetector(
       onTap: onTap,
-      child: SvgPictureAsset(
+      child: SvgPicture.asset(
         icon,
         height: height ?? Sizes.s20.h,
         width: width ?? Sizes.s20.w,
-        color: color ?? AppColors.white,
+        colorFilter: ColorFilter.mode(color ?? AppColors.white, BlendMode.srcIn),
       ),
     ),
   );

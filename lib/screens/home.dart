@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/flutter_widgets.dart';
 import '../core/constants/app_color.dart';
 import '../provider/scroll_provider.dart';
 import 'about_me/about_me.dart';
@@ -34,18 +33,20 @@ class _HomeScreenState extends State<HomeScreen> {
             : null,
         backgroundColor: AppColors.black,
         body: Consumer<ScrollProvider>(builder: (context, provider, child) {
-          return ScrollableColumn(
+          return SingleChildScrollView(
             controller: provider.scrollController,
-            children: [
-              NavBar(
-                scaffoldKey: _scaffoldKey,
-                key: provider.navBarKey,
-              ),
-              WelcomePage(key: provider.welcomeKey),
-              AboutMe(key: provider.aboutMeKey),
-              Contact(key: provider.contactKey),
-              Footer(key: provider.footerKey),
-            ],
+            child: Column(
+              children: [
+                NavBar(
+                  scaffoldKey: _scaffoldKey,
+                  key: provider.navBarKey,
+                ),
+                WelcomePage(key: provider.welcomeKey),
+                AboutMe(key: provider.aboutMeKey),
+                Contact(key: provider.contactKey),
+                Footer(key: provider.footerKey),
+              ],
+            ),
           );
         }),
       );

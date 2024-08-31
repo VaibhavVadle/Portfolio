@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/flutter_widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/constants/app_string.dart';
 import '../../provider/scroll_provider.dart';
 import 'package:provider/provider.dart';
@@ -183,11 +183,11 @@ Widget socialLogo({
     ),
     child: GestureDetector(
       onTap: onTap,
-      child: SvgPictureAsset(
+      child: SvgPicture.asset(
         icon,
         height: height ?? Sizes.s20.h,
         width: width ?? Sizes.s20.w,
-        color: color ?? AppColors.white,
+        colorFilter: ColorFilter.mode(color ?? AppColors.white, BlendMode.srcIn),
       ),
     ),
   );

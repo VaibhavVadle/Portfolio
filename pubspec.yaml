@@ -40,9 +40,7 @@ dependencies:
   cloud_firestore: ^4.8.3
   firebase_core: ^2.15.0
   http: ^1.1.0
-  flutter_widgets:
-    git:
-      url: https://github.com/vvvirani/flutter_widgets
+  flutter_svg: ^2.0.8
 
 dev_dependencies:
   flutter_test:
