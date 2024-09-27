@@ -5,7 +5,7 @@ import '../core/constants/app_sizes.dart';
 
 class CustomUnderline extends StatelessWidget {
   const CustomUnderline({
-    super.key,
+    super.key
   });
 
   @override
