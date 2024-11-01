@@ -21,6 +21,7 @@ Future<void> main() async {
     projectId: "vaibhav-vadle",
   ));
   runApp(const MyApp());
+
   ErrorWidget.builder = (details) {
     return Scaffold(
       body: Padding(
