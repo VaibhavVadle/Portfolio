@@ -58,7 +58,7 @@ class WelcomePageDesktop extends StatelessWidget {
               ),
               SizedBox(height: Sizes.s25.h),
               Text(
-                "A Flutter Developer aiming to design and develop application which enhance \nmy knowledge, skills and make people's lives simple",
+                "A Software Developer aiming to design and develop application which enhance \nmy knowledge, skills and make people's lives simple",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: Sizes.s20.sp,
